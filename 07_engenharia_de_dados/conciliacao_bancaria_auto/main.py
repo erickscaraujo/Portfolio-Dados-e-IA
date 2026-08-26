@@ -1,7 +1,9 @@
 """Conciliacao extrato x ledger: matching por valor com janela de datas."""
 
+import pathlib
 from datetime import date, timedelta
 
+import numpy as np
 import pandas as pd
 
 JANELA_DIAS = 3
@@ -10,7 +12,6 @@ TOLERANCIA_CENTAVOS = 0.011
 
 def gerar_lancamentos(seed: int = 220) -> tuple[list[dict], list[dict]]:
     """Ledger interno e extrato do banco; o extrato tem ruído realista."""
-    import numpy as np
 
     rng = np.random.default_rng(seed)
 
@@ -91,8 +92,6 @@ def conciliar(ledger: list[dict], extrato: list[dict]) -> dict[str, list]:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     ledger, extrato = gerar_lancamentos()

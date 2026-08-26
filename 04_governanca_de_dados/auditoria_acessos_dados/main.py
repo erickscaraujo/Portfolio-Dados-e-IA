@@ -1,12 +1,13 @@
 """Auditoria de acessos: privilegio minimo, contas dormentes e segregacao de funcoes."""
 
 import json
+
+# sensibilidade dos datasets: restrito exige justificativa ativa no cadastro do acesso
 import pathlib
 from datetime import datetime
 
 import pandas as pd
 
-# sensibilidade dos datasets: restrito exige justificativa ativa no cadastro do acesso
 DATASETS = {
     "vw_vendas_publica": "interno",
     "base_clientes_pii": "restrito",
@@ -122,8 +123,6 @@ def auditar(acessos: pd.DataFrame) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     achados = auditar(gerar_acessos())

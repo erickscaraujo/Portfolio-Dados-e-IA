@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import pathlib
 from datetime import datetime, timedelta
 
 
@@ -52,6 +53,7 @@ class TrilhaAuditoria:
 
 
 if __name__ == "__main__":
+    pathlib.Path("outputs").mkdir(parents=True, exist_ok=True)
     trilha = TrilhaAuditoria()
 
     # operacoes legitimas de um dia qualquer

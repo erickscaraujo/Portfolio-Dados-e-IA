@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
@@ -49,8 +51,6 @@ def atribuir_drift_por_feature(treino: np.ndarray, producao: np.ndarray) -> list
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     treino = amostra_treino(N_AMOSTRAS)

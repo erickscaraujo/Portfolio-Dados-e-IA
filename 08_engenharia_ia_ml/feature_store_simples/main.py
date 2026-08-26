@@ -1,5 +1,6 @@
 """Feature store minimalista: uma unica funcao alimenta treino e serving."""
 
+import pathlib
 import sqlite3
 import time
 from contextlib import closing
@@ -50,6 +51,7 @@ def gerar_transacoes(n_clientes: int = 300, seed: int = 61) -> pd.DataFrame:
 
 def publicar_online(transacoes: pd.DataFrame, data_referencia: datetime) -> None:
     """Job offline empurra as features calculadas para o lookup de baixa latencia."""
+    pathlib.Path(CAMINHO_STORE).parent.mkdir(parents=True, exist_ok=True)
     features = calcular_features(transacoes, data_referencia)
 
     with closing(sqlite3.connect(CAMINHO_STORE)) as con:

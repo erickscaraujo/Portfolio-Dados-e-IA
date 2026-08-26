@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -37,8 +39,6 @@ def simular() -> np.ndarray:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     trajetorias = simular()

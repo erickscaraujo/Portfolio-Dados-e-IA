@@ -1,6 +1,7 @@
 """Scheduler com heap: prioridade + aging contra inanicao."""
 
 import heapq
+import random
 import statistics
 from collections import defaultdict
 from itertools import count
@@ -13,7 +14,6 @@ _DESEMPATE = count()  # garante ordem total na heap: nunca compara dois dicts
 
 
 def gerar_jobs(seed: int = 230, total: int = 260) -> list[dict]:
-    import random
 
     rng = random.Random(seed)
     jobs = []

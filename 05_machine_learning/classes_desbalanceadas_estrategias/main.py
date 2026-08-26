@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -61,8 +63,6 @@ def avaliar(nome: str, probas: np.ndarray, y_real: np.ndarray, threshold: float 
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     X, y = gerar_base()

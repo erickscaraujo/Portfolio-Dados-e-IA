@@ -62,9 +62,28 @@ def versao_aplicadas(con: sqlite3.Connection) -> set[int]:
     return {linha[0] for linha in con.execute("SELECT versao FROM schema_migrations")}
 
 
+def _coluna_existe(con: sqlite3.Connection, tabela: str, coluna: str) -> bool:
+    return any(row[1] == coluna for row in con.execute(f"PRAGMA table_info({tabela})"))
+
+
 def _rodar_statements(con: sqlite3.Connection, sql_multiplo: str) -> None:
-    # split por ; cobre nossos scripts simples de DDL/DML
+    # split por ; cobre nossos scripts simples de DDL/DML; ignora duplicatas ja aplicadas
     for statement in filter(None, (s.strip() for s in sql_multiplo.split(";"))):
+        # idempotencia para ALTER ADD COLUMN quando o arquivo ja existe de execucao anterior
+        if statement.upper().startswith("ALTER TABLE") and "ADD COLUMN" in statement.upper():
+            # extrai nome da coluna apos ADD COLUMN
+            partes = statement.split()
+            try:
+                idx = [p.upper() for p in partes].index("COLUMN")
+                coluna = partes[idx + 1]
+                tabela = partes[2]
+                if _coluna_existe(con, tabela, coluna):
+                    continue
+            except (ValueError, IndexError):
+                pass
+        # CREATE INDEX idempotente
+        if statement.upper().startswith("CREATE INDEX"):
+            statement = statement.replace("CREATE INDEX", "CREATE INDEX IF NOT EXISTS", 1)
         con.execute(statement)
 
 

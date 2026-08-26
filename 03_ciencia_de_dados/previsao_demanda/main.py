@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 import numpy as np
@@ -42,8 +44,6 @@ def metricas(y_real: pd.Series, y_previsto: np.ndarray) -> dict:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     base = criar_features(gerar_serie())

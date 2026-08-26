@@ -1,5 +1,6 @@
 """Dimensao SCD Tipo 2 em SQLite: historico versionado com valido_de/valido_ate."""
 
+import pathlib
 import sqlite3
 
 DDL = """
@@ -68,6 +69,7 @@ def consulta_pontual(con: sqlite3.Connection, cliente_nk: int, data: str) -> tup
 
 
 def conectar(caminho: str = "outputs/dw_dimensoes.sqlite") -> sqlite3.Connection:
+    pathlib.Path(caminho).parent.mkdir(parents=True, exist_ok=True)
     con = sqlite3.connect(caminho)
     con.execute(DDL)
     con.commit()

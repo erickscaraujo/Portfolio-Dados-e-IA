@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import estatistica_np as enp
 import matplotlib.pyplot as plt
 import numpy as np
@@ -28,8 +30,6 @@ def gerar_salarios(n_por_area: int = 320) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     base = gerar_salarios()

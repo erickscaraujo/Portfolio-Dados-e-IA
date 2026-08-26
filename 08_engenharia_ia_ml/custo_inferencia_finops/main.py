@@ -47,8 +47,6 @@ OTIMIZACOES = {
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     painel = contabilizar()

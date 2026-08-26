@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import joblib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -11,7 +13,7 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix, precision_recall_fscore_support, roc_auc_score
+from sklearn.metrics import RocCurveDisplay, confusion_matrix, precision_recall_fscore_support, roc_auc_score
 from sklearn.model_selection import StratifiedKFold, cross_val_score, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -82,8 +84,6 @@ def matriz_confusao_texto(y_real, y_predito) -> str:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     base = gerar_clientes()
@@ -131,7 +131,6 @@ if __name__ == "__main__":
     print(f"Exemplo de scoring: novo cliente tem {risco:.1%} de risco estimado de churn")
 
     # curva ROC para o relatorio final
-    from sklearn.metrics import RocCurveDisplay
 
     fig, ax = plt.subplots(figsize=(6, 5))
     for nome, (_, pipe) in avaliacoes.items():

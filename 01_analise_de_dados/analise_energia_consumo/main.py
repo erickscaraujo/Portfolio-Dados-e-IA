@@ -4,11 +4,13 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+# tarifa branca (R$/kWh) e o convencional unico para referencia
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# tarifa branca (R$/kWh) e o convencional unico para referencia
 TARIFA_PONTA = 1.18
 TARIFA_FORA_PONTA = 0.62
 TARIFA_CONVENCIONAL = 0.78
@@ -57,8 +59,6 @@ def custo_mensal(consumo_setor: pd.DataFrame, tarifa_branca: bool) -> pd.Series:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     consumo = gerar_consumo_horario()

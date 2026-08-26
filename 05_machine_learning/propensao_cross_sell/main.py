@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -44,7 +46,6 @@ def gerar_clientes(n: int = 9_000) -> pd.DataFrame:
 
 
 def main() -> None:
-    import pathlib
 
     pathlib.Path("outputs").mkdir(exist_ok=True)
 

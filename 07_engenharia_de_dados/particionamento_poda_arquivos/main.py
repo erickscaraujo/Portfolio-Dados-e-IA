@@ -4,6 +4,7 @@ import time
 from datetime import date, timedelta
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
 
 RAIZ = Path("outputs/lake_particionado")
@@ -13,7 +14,6 @@ SEED = 420
 
 
 def gerar_particoes() -> None:
-    import numpy as np
 
     rng = np.random.default_rng(SEED)
     for offset in range(DIAS):

@@ -4,11 +4,13 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+# (nome, categoria, vendas no mes, preco, custo do insumo)
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# (nome, categoria, vendas no mes, preco, custo do insumo)
 ITENS = [
     ("Picanha na chapa", "prato", 210, 78.0, 34.0),
     ("Risoto de funghi", "prato", 95, 62.0, 21.0),
@@ -57,8 +59,6 @@ ACOES = {
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     cardapio = montar_cardapio()

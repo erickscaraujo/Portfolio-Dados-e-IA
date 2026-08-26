@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -40,8 +42,6 @@ def coleta_estratificada(rng: np.random.Generator, n_total: int) -> tuple[int, i
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
     rng = np.random.default_rng(SEED)
 

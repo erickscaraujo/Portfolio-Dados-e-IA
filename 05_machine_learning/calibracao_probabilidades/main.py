@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.calibration import CalibratedClassifierCV, calibration_curve
@@ -53,8 +55,6 @@ def resumo_calibracao(nome: str, probas: np.ndarray, y_real: np.ndarray, n_bins:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     X, y = gerar_base()

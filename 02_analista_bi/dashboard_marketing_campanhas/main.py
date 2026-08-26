@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -58,8 +60,6 @@ def pacing_diario(seed: int = SEED) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     campanhas = metricas_campanhas()

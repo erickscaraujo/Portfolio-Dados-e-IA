@@ -1,10 +1,12 @@
 """Analise de vendas do varejo: gera a base, calcula indicadores e publica o relatorio."""
 
+import pathlib
+
 import matplotlib
 
 matplotlib.use("Agg")
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # noqa: E402
 import pandas as pd
 from analise import (
     desempenho_lojas,
@@ -64,8 +66,6 @@ def salvar_resumo(resumo: dict, melhor_loja: str, produto_top: str) -> None:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path(SAIDA).mkdir(exist_ok=True)
 
     base = preparar(gerar_vendas())

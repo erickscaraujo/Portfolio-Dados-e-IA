@@ -4,6 +4,8 @@ import matplotlib
 
 matplotlib.use("Agg")
 
+import pathlib
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -71,8 +73,6 @@ def tabela_uplift_por_decil(uplift: np.ndarray, conversao_real: np.ndarray, trat
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
 
     base = gerar_clientes()

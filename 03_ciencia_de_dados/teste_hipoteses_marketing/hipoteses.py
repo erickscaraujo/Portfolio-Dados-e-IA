@@ -13,7 +13,6 @@ def cohen_d(grupo_a: np.ndarray, grupo_b: np.ndarray) -> float:
 
 
 def resumo_descritivo(grupos: dict[str, np.ndarray]) -> "pd.DataFrame":
-    import pandas as pd
 
     linhas = []
     for nome, valores in grupos.items():

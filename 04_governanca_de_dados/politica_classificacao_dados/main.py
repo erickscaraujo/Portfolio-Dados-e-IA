@@ -1,6 +1,7 @@
 """Politica de classificacao: rotula colunas por sensibilidade e define tratamento."""
 
 import json
+import pathlib
 import re
 
 import pandas as pd
@@ -99,7 +100,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    import pathlib
-
     pathlib.Path("outputs").mkdir(exist_ok=True)
     main()
