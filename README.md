@@ -188,6 +188,4 @@ Rscript -e "lintr::lint_dir('.')"
 
 **Nota sobre a autoria**
 
-Este projeto foi desenvolvido integralmente por mim.
-Para fins de demonstração e simplificação, solicitei a uma inteligência artificial que adaptasse o código para gerar dados fictícios diretamente no arquivo main.py, sem utilizar bases de dados externas. Assim como a catalogação foi feita por IA.
-A ideia, estrutura e implementação original são de minha autoria; a IA apenas auxiliou na adaptação técnica para que qualquer pudesse replicar e compreender para fins educacionais.
+Para fins de demonstração e simplificação, solicitei a uma inteligência artificial que adaptasse o código para gerar dados fictícios diretamente no arquivo `main`, sem utilizar bases de dados externas. A catalogação foi feita por IA, porém, a ideia, estrutura e implementação original são de minha autoria, a IA apenas auxiliou na adaptação técnica para que qualquer uma pessoa pudesse replicar e compreender para fins educacionais.
