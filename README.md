@@ -2,6 +2,12 @@
 
 Coleção de **127 projetos completos e executáveis** — a maioria em Python (lint com Ruff) e 16 recentes em linguagem R (lint com lintr) — organizados por área de atuação. Cada projeto gera seus próprios dados sintéticos, roda de ponta a ponta e entrega entregáveis reais (relatórios, gráficos, modelos, APIs, data warehouse).
 
+## Tecnologias utilizadas
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+
+
 ## Áreas e projetos
 
 | Área | Projeto | O que demonstra |
@@ -177,3 +183,11 @@ centralizada no `.lintr` (linha de 120 colunas, complexidade ciclomática ≤ 30
 ```bash
 Rscript -e "lintr::lint_dir('.')"
 ```
+
+---
+
+**Nota sobre a autoria**
+
+Este projeto foi desenvolvido integralmente por mim.
+Para fins de demonstração e simplificação, solicitei a uma inteligência artificial que adaptasse o código para gerar dados fictícios diretamente no arquivo main.py, sem utilizar bases de dados externas. Assim como a catalogação foi feita por IA.
+A ideia, estrutura e implementação original são de minha autoria; a IA apenas auxiliou na adaptação técnica para que qualquer pudesse replicar e compreender para fins educacionais.
